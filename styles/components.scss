@@ -1,0 +1,55 @@
+// section style
+.section {
+  @apply py-16;
+}
+
+// container
+.container {
+  @apply mx-auto max-w-[1000px] px-4;
+}
+
+// form style
+.form-inputs * {
+  @apply mb-5 leading-10;
+}
+
+// social icon style
+.social-icons {
+  @apply space-x-4;
+  li {
+    @apply inline-block;
+    a {
+      @apply block h-9 w-9 rounded-full border bg-primary text-center text-white;
+      svg {
+        @apply m-auto h-9;
+      }
+    }
+  }
+}
+
+// form style
+.form-input,
+.form-textarea {
+  @apply border-border focus:border-primary focus:ring-transparent;
+}
+
+// content style
+.content {
+  @apply prose max-w-none;
+  @apply prose-headings:mt-12 prose-headings:font-bold prose-headings:text-dark;
+  @apply prose-h1:mb-4 prose-h1:text-h1-sm md:prose-h1:text-h1;
+  @apply prose-h2:mb-4 prose-h2:text-h2-sm md:prose-h2:text-h2;
+  @apply prose-h3:mt-4 prose-h3:text-h3-sm md:prose-h3:text-h3;
+  @apply prose-h4:mt-4;
+  @apply prose-h5:mb-4;
+  @apply prose-h6:mb-6;
+  @apply prose-hr:border-border;
+  @apply prose-p:text-lg prose-p:text-text;
+  @apply prose-img:rounded-lg;
+  @apply prose-blockquote:border-primary prose-blockquote:bg-theme-light prose-blockquote:py-1 prose-blockquote:px-4;
+  @apply prose-code:rounded-sm prose-code:border prose-code:border-border prose-code:px-1 prose-code:text-primary;
+  @apply prose-strong:text-dark;
+  @apply prose-a:text-primary;
+  @apply prose-li:text-text;
+  @apply prose-thead:border-border prose-tr:border-border prose-td:text-text;
+}
