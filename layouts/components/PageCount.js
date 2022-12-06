@@ -1,53 +1,74 @@
-import React, { useState } from "react";
+import { pages } from "@lib/pages";
+import React, { useEffect, useState } from "react";
 
-const PageCount = ({ dispatch }) => {
-  const [color, setColor] = useState(1);
-  const handleDispatch = (id) => {
-    setColor(id);
+const PageCount = ({ dispatch, state }) => {
+  const [active, setActive] = useState([]);
+  const [customPrize, setCustomPrize] = useState([]);
+
+  // data disptach on change category
+  useEffect(() => {
+    const dev_prize = customPrize.reduce(
+      (prev, curr) => prev + curr.dev_prize,
+      0
+    );
+    const customize_prize = customPrize.reduce(
+      (prev, curr) => prev + curr.customize_prize,
+      0
+    );
+
     dispatch({
-      id,
+      type: "PAGE",
+      custom: true,
+      prize: state.category.category
+        ? state.category.category === "development"
+          ? dev_prize
+          : customize_prize
+        : null,
+    });
+  }, [state.category.category]);
+
+  // dispatch pages value
+  const handleDispatch = (isActive, index, prize, element) => {
+    // set prizes on custom
+    if (customPrize.map((el) => el.id).includes(index)) {
+      setCustomPrize(customPrize.filter((el) => el.id !== index));
+    } else {
+      setCustomPrize([...customPrize, element]);
+    }
+
+    // active button
+    setActive(
+      isActive
+        ? active.filter((current) => current !== index)
+        : [...active, index]
+    );
+    console.log(isActive ? null : prize);
+    dispatch({
+      prize: isActive ? null : prize,
       type: "PAGE",
     });
   };
   return (
     <div className="mt-4">
-      <h2 className="h4 mb-2">Number of page</h2>
-      <button
-        className={` btn ${color === 1 && "btn-primary"}`}
-        onClick={() => handleDispatch(1)}
-      >
-        page-1{" "}
-      </button>
-      <button
-        className={` btn ${color === 2 && "btn-primary"}`}
-        onClick={() => handleDispatch(2)}
-      >
-        page-2{" "}
-      </button>
-      <button
-        className={` btn ${color === 3 && "btn-primary"}`}
-        onClick={() => handleDispatch(3)}
-      >
-        page-3{" "}
-      </button>
-      <button
-        className={` btn ${color === 4 && "btn-primary"}`}
-        onClick={() => handleDispatch(4)}
-      >
-        page-4{" "}
-      </button>
-      <button
-        className={` btn ${color === 5 && "btn-primary"}`}
-        onClick={() => handleDispatch(5)}
-      >
-        page-5{" "}
-      </button>
-      <button
-        className={` btn ${color === 6 && "btn-primary"}`}
-        onClick={() => handleDispatch(6)}
-      >
-        page-6{" "}
-      </button>
+      <h2 className="h4 mb-2"> pages</h2>
+      {pages.map((el, i) => {
+        const isActive = active.includes(i);
+
+        const prize = state.category.category
+          ? state.category.category === "customization"
+            ? el.customize_prize
+            : el.dev_prize
+          : null;
+        return (
+          <button
+            key={`pages-${i}`}
+            className={` btn  ${isActive && "btn-primary"}`}
+            onClick={() => handleDispatch(isActive, i, prize, el)}
+          >
+            {el.page}
+          </button>
+        );
+      })}
     </div>
   );
 };

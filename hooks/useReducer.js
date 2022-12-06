@@ -1,15 +1,14 @@
 import { useReducer } from "react";
-import { reducer, page_amount, template_amount } from "@lib/reducer";
+import { reducer } from "@lib/reducer";
 
 const ProductReducer = () => {
   const initialState = {
-    template: {
-      id: 1,
-      amount: template_amount,
+    category: {
+      prize: null,
+      category: "",
     },
     page: {
-      amount: page_amount,
-      pageId: 1,
+      prize: null,
     },
   };
   const [state, dispatch] = useReducer(reducer, initialState);
