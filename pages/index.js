@@ -11,9 +11,20 @@ const Home = () => {
       <div className="section">
         <div className="container">
           <h1 className="mb-4 ">Website Calculator</h1>
-          {/* <h2 className="h4 my-4 text-primary">
-            Total:{state.template.amount + state.page.amount}
-          </h2> */}
+          {state.isCustomization ? (
+            <h2 className="h4 my-4 text-primary">
+              Total:{state.customization.prize}
+            </h2>
+          ) : state.isDevelopment ? (
+            <h2 className="h4 my-4 text-primary">
+              Total:{state.development.prize}
+            </h2>
+          ) : null}
+          {state.isCustomization ? (
+            <h2>page:{state.customization.page.prize}</h2>
+          ) : state.isDevelopment ? (
+            <h2>page:{state.development.page.prize}</h2>
+          ) : null}
           <ProjectCategory dispatch={dispatch} />
           {/* <TemplateCount dispatch={dispatch} /> */}
           <PageCount dispatch={dispatch} state={state} />

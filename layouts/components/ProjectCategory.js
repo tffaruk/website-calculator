@@ -1,8 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 const ProjectCategory = ({ dispatch }) => {
   const [development, setDevelopment] = useState(false);
   const [color, setColor] = useState();
+  const [isDesign, setIsDesign] = useState(false);
+  const [isDev, setIsDev] = useState(true);
 
+  useEffect(() => {
+    setIsDev(true);
+    dispatch({
+      type: "PROJECT_TYPE_DEVELOPMENT",
+      isDevelopment: true,
+    });
+  }, [isDesign]);
+
+  // check design
+  const handleDesign = (value) => {
+    setIsDesign(value);
+    dispatch({
+      type: "PROJECT_TYPE_DESIGN",
+      isDesign: value,
+    });
+  };
+  // check  development
+  const handleDevelopment = (value) => {
+    setIsDev(value);
+    dispatch({
+      type: "PROJECT_TYPE_DEVELOPMENT",
+      isDevelopment: value,
+    });
+  };
   // themecustomization
   const handleCustomization = (id) => {
     setDevelopment(false);
@@ -12,11 +38,14 @@ const ProjectCategory = ({ dispatch }) => {
       type: "CUSTOMIZATION",
       prize: 200,
       category: "customization",
+    
     });
   };
   // development
   const handleDev = (id) => {
     setDevelopment(!development);
+    setIsDev(true);
+    setIsDesign(false);
     setColor(id);
     dispatch({
       id: id,
@@ -50,6 +79,8 @@ const ProjectCategory = ({ dispatch }) => {
               id="development"
               type="checkbox"
               className=" h-6 w-6 rounded border-gray-300 text-indigo-600 ring-0 focus:ring-0 focus:ring-inherit"
+              checked={isDev}
+              onChange={() => handleDevelopment(isDesign ? !isDev : isDev)}
             />
             <label htmlFor="development " className="h4 ml-1">
               {" "}
@@ -61,6 +92,8 @@ const ProjectCategory = ({ dispatch }) => {
               id="design"
               type="checkbox"
               className="ml-3 h-6 w-6 rounded border-gray-300 text-indigo-600 ring-0 focus:ring-0 focus:ring-inherit"
+              checked={isDesign}
+              onChange={() => handleDesign(!isDesign)}
             />
             <label htmlFor="design" className="h4 ml-1">
               {" "}

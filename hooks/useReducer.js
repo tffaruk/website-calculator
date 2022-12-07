@@ -3,13 +3,22 @@ import { reducer } from "@lib/reducer";
 
 const ProductReducer = () => {
   const initialState = {
-    category: {
+    customization: {
       prize: null,
-      category: "",
+      page: {
+        prize: null,
+      },
     },
-    page: {
+    development: {
       prize: null,
+      page: {
+        prize: null,
+      },
+      design: false,
+      development: true,
     },
+    isDevelopment: false,
+    isCustomization: false,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   return {
