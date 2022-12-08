@@ -14,7 +14,8 @@ const PageCount = ({ dispatch, state }) => {
   };
   const customize_prize = totalValue("customize_prize");
   const dev_prize = totalValue("dev_prize");
-
+  console.log(state.custom);
+  //dispatch for  development
   useEffect(() => {
     dispatch({
       type: "DEV_PAGE",
@@ -23,6 +24,7 @@ const PageCount = ({ dispatch, state }) => {
     });
   }, [state.dev, dev_prize]);
 
+  // dispatch for theme customization
   useEffect(() => {
     dispatch({
       type: "CUSTOMIZE_PAGE",
@@ -63,7 +65,6 @@ const PageCount = ({ dispatch, state }) => {
           : []
       );
     }
-    console.log(prize);
     // active button
     setActive(
       isActive
@@ -97,15 +98,6 @@ const PageCount = ({ dispatch, state }) => {
               : el.dev_prize
             : el.dev_prize
           : null;
-        // state.category.category
-        //   ? state.category.category === "customization"
-        //     ? el.customize_prize
-        //     : state.design && state.development
-        //     ? el.dev_prize + el.design_prize
-        //     : !state.development && state.design
-        //     ? el.design_prize
-        //     : el.dev_prize
-        //   : null;
 
         return (
           <button

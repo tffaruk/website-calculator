@@ -1,5 +1,6 @@
 import ProductReducer from "@hooks/useReducer";
 import Base from "@layouts/Baseof";
+import Content from "@layouts/components/Content";
 import PageCount from "@layouts/components/PageCount";
 import ProjectCategory from "@layouts/components/ProjectCategory";
 
@@ -25,11 +26,12 @@ const Home = () => {
           ) : state.isDevelopment ? (
             <h2>page:{state.development.page.prize}</h2>
           ) : null}
-          <ProjectCategory dispatch={dispatch} state={state
-          
-          } />
+          <ProjectCategory dispatch={dispatch} state={state} />
           {/* <TemplateCount dispatch={dispatch} /> */}
           <PageCount dispatch={dispatch} state={state} />
+          {state.development.development ? (
+            <Content dispatch={dispatch} state={state} />
+          ) : null}
         </div>
       </div>
     </Base>

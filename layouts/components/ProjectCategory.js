@@ -1,7 +1,8 @@
+import { is } from "date-fns/locale";
 import React, { useEffect, useState } from "react";
 const ProjectCategory = ({ dispatch, state }) => {
   const [development, setDevelopment] = useState(false);
-  const [color, setColor] = useState();
+
   const [isDesign, setIsDesign] = useState(false);
   const [isDev, setIsDev] = useState(true);
 
@@ -30,11 +31,11 @@ const ProjectCategory = ({ dispatch, state }) => {
     });
   };
   // themecustomization
-  const handleCustomization = (id) => {
+  const handleCustomization = () => {
     setDevelopment(false);
-    setColor(id);
+
     dispatch({
-      id: id,
+      id: 1,
       type: "CUSTOMIZATION",
       prize: 200,
 
@@ -42,13 +43,13 @@ const ProjectCategory = ({ dispatch, state }) => {
     });
   };
   // development
-  const handleDev = (id) => {
+  const handleDev = () => {
     setDevelopment(!development);
     setIsDev(state.development.development);
     setIsDesign(state.development.design);
-    setColor(id);
+
     dispatch({
-      id: id,
+      id: 2,
       type: "DEVELOPMENT",
       prize: 400,
 
@@ -60,14 +61,14 @@ const ProjectCategory = ({ dispatch, state }) => {
       <div className="mb-8">
         <h2 className="h3 mb-2">Project category</h2>
         <button
-          className={` btn ${color === 1 && "btn-primary"}`}
-          onClick={() => handleCustomization(1)}
+          className={` btn ${state.isCustomization && "btn-primary"}`}
+          onClick={handleCustomization}
         >
           Theme customization
         </button>
         <button
-          className={` btn ${color === 2 && "btn-primary"} ml-2`}
-          onClick={() => handleDev(2)}
+          className={` btn ${state.isDevelopment && "btn-primary"} ml-2`}
+          onClick={handleDev}
         >
           Development
         </button>

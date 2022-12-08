@@ -8,10 +8,16 @@ const ProductReducer = () => {
       page: {
         prize: null,
       },
+      content: {
+        prize: null,
+      },
     },
     development: {
       prize: null,
       page: {
+        prize: null,
+      },
+      content: {
         prize: null,
       },
       design: false,
@@ -19,8 +25,8 @@ const ProductReducer = () => {
     },
     isDevelopment: false,
     isCustomization: false,
-    dev:false,
-    custom:false
+    dev: false,
+    custom: false,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   return {
