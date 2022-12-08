@@ -5,7 +5,7 @@ import ProjectCategory from "@layouts/components/ProjectCategory";
 
 const Home = () => {
   const { state, dispatch } = ProductReducer();
-  console.log(state);
+
   return (
     <Base>
       <div className="section">
@@ -25,7 +25,9 @@ const Home = () => {
           ) : state.isDevelopment ? (
             <h2>page:{state.development.page.prize}</h2>
           ) : null}
-          <ProjectCategory dispatch={dispatch} />
+          <ProjectCategory dispatch={dispatch} state={state
+          
+          } />
           {/* <TemplateCount dispatch={dispatch} /> */}
           <PageCount dispatch={dispatch} state={state} />
         </div>

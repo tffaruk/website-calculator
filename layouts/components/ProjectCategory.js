@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-const ProjectCategory = ({ dispatch }) => {
+const ProjectCategory = ({ dispatch, state }) => {
   const [development, setDevelopment] = useState(false);
   const [color, setColor] = useState();
   const [isDesign, setIsDesign] = useState(false);
@@ -37,20 +37,21 @@ const ProjectCategory = ({ dispatch }) => {
       id: id,
       type: "CUSTOMIZATION",
       prize: 200,
+
       category: "customization",
-    
     });
   };
   // development
   const handleDev = (id) => {
     setDevelopment(!development);
-    setIsDev(true);
-    setIsDesign(false);
+    setIsDev(state.development.development);
+    setIsDesign(state.development.design);
     setColor(id);
     dispatch({
       id: id,
       type: "DEVELOPMENT",
       prize: 400,
+
       category: "development",
     });
   };

@@ -19,6 +19,8 @@ const ProductReducer = () => {
     },
     isDevelopment: false,
     isCustomization: false,
+    dev:false,
+    custom:false
   };
   const [state, dispatch] = useReducer(reducer, initialState);
   return {
