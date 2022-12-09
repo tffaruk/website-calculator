@@ -58,25 +58,29 @@ const ProjectCategory = ({ dispatch, state }) => {
   };
   return (
     <section>
-      <div className="mb-8">
-        <h2 className="h3 mb-2">Project category</h2>
+      <div className="shadow-[0px 0px 19px 0px #0000001a] mb-16 rounded bg-[#ffffff0f] p-20 text-center">
+        <h2 className=" mb-8">Project category</h2>
         <button
-          className={` btn ${state.isCustomization && "btn-primary"}`}
+          className={` btn  rounded-sm border-primary ${
+            state.isCustomization && "btn-primary"
+          }`}
           onClick={handleCustomization}
         >
           Theme customization
         </button>
         <button
-          className={` btn ${state.isDevelopment && "btn-primary"} ml-2`}
+          className={` btn rounded-sm border-primary ${
+            state.isDevelopment && "btn-primary"
+          } ml-2`}
           onClick={handleDev}
         >
           Development
         </button>
       </div>
       {development && (
-        <div>
+        <div className="shadow-[0px 0px 19px 0px #0000001a] mb-16 rounded bg-[#ffffff0f] p-20 text-center">
           <h3 className="h3 mb-2">Project Type</h3>
-          <div className="inline-flex items-center">
+          <div className="flex items-center">
             <input
               id="development"
               type="checkbox"
@@ -89,11 +93,11 @@ const ProjectCategory = ({ dispatch, state }) => {
               Only Development
             </label>
           </div>
-          <div className="inline-flex items-center">
+          <div className="flex items-center">
             <input
               id="design"
               type="checkbox"
-              className="ml-3 h-6 w-6 rounded border-gray-300 text-indigo-600 ring-0 focus:ring-0 focus:ring-inherit"
+              className=" h-6 w-6 rounded border-gray-300 text-indigo-600 ring-0 focus:ring-0 focus:ring-inherit"
               checked={isDesign}
               onChange={() => handleDesign(!isDesign)}
             />

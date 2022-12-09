@@ -14,7 +14,7 @@ const PageCount = ({ dispatch, state }) => {
   };
   const customize_prize = totalValue("customize_prize");
   const dev_prize = totalValue("dev_prize");
-  console.log(state.custom);
+
   //dispatch for  development
   useEffect(() => {
     dispatch({
@@ -81,8 +81,8 @@ const PageCount = ({ dispatch, state }) => {
   };
 
   return (
-    <div className="mt-4">
-      <h2 className="h4 mb-2"> pages</h2>
+    <div className="shadow-[0px 0px 19px 0px #0000001a] mb-16 rounded bg-[#ffffff0f] p-20 text-center">
+      <h2 className=" mb-8"> Select Pages</h2>
       {pages.map((el, i) => {
         const isActive = active.includes(i);
 
@@ -100,17 +100,57 @@ const PageCount = ({ dispatch, state }) => {
           : null;
 
         return (
-          <button
-            key={`pages-${i}`}
-            className={` btn  ${isActive && "btn-primary"}`}
-            onClick={() => handleDispatch(isActive, i, prize, el)}
-          >
-            {el.page}
-          </button>
+          // <button
+          //   key={`pages-${i}`}
+          //   className={` btn  ${isActive && "btn-primary"}`}
+          //   onClick={() => handleDispatch(isActive, i, prize, el)}
+          // >
+          //   {el.page}
+          // </button>
+
+          <div className="mb-2 flex items-center" key={`pages-${i}`}>
+            <input
+              id={el.page}
+              type="checkbox"
+              className=" h-6 w-6 rounded border-gray-300 text-indigo-600 ring-0 focus:ring-0 focus:ring-inherit"
+              checked={isActive}
+              onChange={() => handleDispatch(isActive, i, prize, el)}
+            />
+            <label htmlFor={el.page} className="h5 ml-2">
+              {" "}
+              {el.page}
+            </label>
+          </div>
         );
       })}
+      {state.isCustomization && state.customization.page.prize ? (
+        <h2 className="h4 my-4 text-primary">
+          Total:${state.customization.page.prize}
+        </h2>
+      ) : state.isDevelopment && state.development.page.prize ? (
+        <h2 className="h4 my-4 text-primary">
+          Total: ${state.development.page.prize}
+        </h2>
+      ) : null}
     </div>
   );
 };
 
 export default PageCount;
+
+{
+  /* 
+<div className="inline-flex items-center">
+<input
+  id="design"
+  type="checkbox"
+  className="ml-3 h-6 w-6 rounded border-gray-300 text-indigo-600 ring-0 focus:ring-0 focus:ring-inherit"
+  checked={isDesign}
+  onChange={() => handleDesign(!isDesign)}
+/>
+<label htmlFor="design" className="h4 ml-1">
+  {" "}
+  Design
+</label>
+</div> */
+}

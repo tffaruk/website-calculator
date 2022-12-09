@@ -11,26 +11,46 @@ const Home = () => {
     <Base>
       <div className="section">
         <div className="container">
-          <h1 className="mb-4 ">Website Calculator</h1>
-          {state.isCustomization ? (
-            <h2 className="h4 my-4 text-primary">
-              Total:{state.customization.prize}
-            </h2>
-          ) : state.isDevelopment ? (
-            <h2 className="h4 my-4 text-primary">
-              Total:{state.development.prize}
-            </h2>
-          ) : null}
-          {state.isCustomization ? (
+          <div className="shadow-[0px 0px 19px 0px #0000001a] mb-16 rounded bg-[#ffffff0f] p-20 text-center">
+            <h1 className="mb-8  ">
+              Website cost <span className="text-primary">calculator</span>
+            </h1>
+            <p>
+              The website cost calculator app helps you estimate the different
+              costs associated with a website, including: website design,
+              website content, and website functionality. ‍‍‍
+            </p>
+          </div>
+
+          {/* {state.isCustomization ? (
             <h2>page:{state.customization.page.prize}</h2>
           ) : state.isDevelopment ? (
             <h2>page:{state.development.page.prize}</h2>
-          ) : null}
+          ) : null} */}
+
           <ProjectCategory dispatch={dispatch} state={state} />
+
           {/* <TemplateCount dispatch={dispatch} /> */}
+
           <PageCount dispatch={dispatch} state={state} />
-          {state.development.development ? (
+
+          {state.isDevelopment && state.development.development ? (
             <Content dispatch={dispatch} state={state} />
+          ) : state.isCustomization ? (
+            <Content dispatch={dispatch} state={state} />
+          ) : state.development.design &&
+            !state.development.development ? null : (
+            <Content dispatch={dispatch} state={state} />
+          )}
+
+          {state.isCustomization ? (
+            <h2 className="h4 my-4 text-primary">
+              Total: ${state.customization.prize}
+            </h2>
+          ) : state.isDevelopment ? (
+            <h2 className="h4 my-4 text-primary">
+              Total: ${state.development.prize}
+            </h2>
           ) : null}
         </div>
       </div>
