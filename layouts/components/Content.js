@@ -1,4 +1,4 @@
-import data from "config/data.json"
+import data from "config/data.json";
 import React, { useEffect, useState } from "react";
 import SectaionLayout from "./SectaionLayout";
 
@@ -48,7 +48,7 @@ const Content = ({ dispatch, state }) => {
             <input
               id={el.content}
               type="checkbox"
-              className=" h-6 w-6 rounded border-gray-300 text-indigo-600 ring-0 focus:ring-0 focus:ring-inherit"
+              className=" h-6 w-6 rounded border-gray-300 text-primary ring-0 focus:ring-0 focus:ring-inherit"
               checked={isActive}
               onChange={() => handleDispatch(isActive, i, el.prize, el)}
             />

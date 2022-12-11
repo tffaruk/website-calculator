@@ -8,6 +8,7 @@ import SectaionLayout from "@layouts/components/SectaionLayout";
 
 const Home = () => {
   const { state, dispatch } = ProductReducer();
+  console.log(state);
 
   return (
     <Base>

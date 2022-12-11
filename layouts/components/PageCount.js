@@ -34,7 +34,15 @@ const PageCount = ({ dispatch, state }) => {
       prize: state.category ? customize_prize : null,
     });
   }, [state.custom, customize_prize]);
-
+  useEffect(() => {
+    if (!state.development.development) {
+      console.log(totalValue("design_prize"));
+      dispatch({
+        type: "DESIGN",
+        prize: totalValue("design_prize"),
+      });
+    }
+  }, [state.development.development]);
   let total = customPrize.reduce(
     (acc, curr) => (acc += curr.dev_prize + curr.design_prize),
     0
@@ -106,7 +114,7 @@ const PageCount = ({ dispatch, state }) => {
             <input
               id={el.page}
               type="checkbox"
-              className=" h-6 w-6 rounded border-gray-300 text-indigo-600 ring-0 focus:ring-0 focus:ring-inherit"
+              className=" h-6 w-6 rounded border-gray-300 text-primary ring-0 focus:ring-0 focus:ring-inherit"
               checked={isActive}
               onChange={() => handleDispatch(isActive, i, prize, el)}
             />

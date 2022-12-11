@@ -1,4 +1,3 @@
-import { is } from "date-fns/locale";
 import React, { useEffect, useState } from "react";
 import SectaionLayout from "./SectaionLayout";
 const ProjectCategory = ({ dispatch, state }) => {
@@ -13,6 +12,8 @@ const ProjectCategory = ({ dispatch, state }) => {
       isDevelopment: true,
     });
   }, [isDesign]);
+
+
 
   // check design
   const handleDesign = (value) => {
@@ -84,7 +85,7 @@ const ProjectCategory = ({ dispatch, state }) => {
             <input
               id="development"
               type="checkbox"
-              className=" h-6 w-6 rounded border-gray-300 text-indigo-600 ring-0 focus:ring-0 focus:ring-inherit"
+              className=" h-6 w-6 rounded border-gray-300 text-primary ring-0 focus:ring-0 focus:ring-inherit"
               checked={isDev}
               onChange={() => handleDevelopment(isDesign ? !isDev : isDev)}
             />
@@ -97,7 +98,7 @@ const ProjectCategory = ({ dispatch, state }) => {
             <input
               id="design"
               type="checkbox"
-              className=" h-6 w-6 rounded border-gray-300 text-indigo-600 ring-0 focus:ring-0 focus:ring-inherit"
+              className=" h-6 w-6 rounded border-gray-300 text-primary ring-0 focus:ring-0 focus:ring-inherit"
               checked={isDesign}
               onChange={() => handleDesign(!isDesign)}
             />

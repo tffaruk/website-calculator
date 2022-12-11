@@ -32,6 +32,12 @@ const ProductReducer = () => {
       design: false,
       development: true,
     },
+    design: {
+      prize: null,
+      page: {
+        prize: null,
+      },
+    },
     // default state
     isDevelopment: false,
     isCustomization: false,
