@@ -52,7 +52,7 @@ const Content = ({ dispatch, state }) => {
               checked={isActive}
               onChange={() => handleDispatch(isActive, i, el.prize, el)}
             />
-            <label htmlFor={el.content} className="h5 ml-2">
+            <label htmlFor={el.content} className="h5 ml-2 capitalize">
               {" "}
               {el.content}
             </label>

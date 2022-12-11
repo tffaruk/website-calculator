@@ -109,21 +109,13 @@ const PageCount = ({ dispatch, state }) => {
               checked={isActive}
               onChange={() => handleDispatch(isActive, i, prize, el)}
             />
-            <label htmlFor={el.page} className="h5 ml-2">
+            <label htmlFor={el.page} className="h5 ml-2 capitalize">
               {" "}
               {el.page}
             </label>
           </div>
         );
       })}
-      {/* <h2 className="h4 my-4 text-primary">
-        Total: $
-        {state.isDevelopment && state.development.page.prize
-          ? state.development.page.prize
-          : state.isCustomization && state.customization.page.prize
-          ? state.customization.page.prize
-          : 0}
-      </h2> */}
     </SectaionLayout>
   );
 };

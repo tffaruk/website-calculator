@@ -13,7 +13,7 @@ const Home = () => {
     <Base>
       <div className="section">
         <div className="container relative">
-          <SectaionLayout style="p-20">
+          <SectaionLayout style="px-16 py-12">
             <h1 className="mb-8  ">
               Website cost <span className="text-primary">calculator</span>
             </h1>

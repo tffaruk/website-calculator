@@ -79,7 +79,7 @@ const ProjectCategory = ({ dispatch, state }) => {
         </button>
       </SectaionLayout>
       {development && (
-        <SectaionLayout state={state} style="p-20">
+        <SectaionLayout state={state} style="px-16 py-12">
           <h2 className=" mb-2">Project Type</h2>
           <div className="flex items-center">
             <input
@@ -91,7 +91,7 @@ const ProjectCategory = ({ dispatch, state }) => {
             />
             <label htmlFor="development " className="h4 ml-1">
               {" "}
-              Only Development
+              Development
             </label>
           </div>
           <div className="flex items-center">
@@ -102,7 +102,7 @@ const ProjectCategory = ({ dispatch, state }) => {
               checked={isDesign}
               onChange={() => handleDesign(!isDesign)}
             />
-            <label htmlFor="design" className="h4 ml-1">
+            <label htmlFor="design" className="h4 ml-1 capitalize">
               {" "}
               Design
             </label>

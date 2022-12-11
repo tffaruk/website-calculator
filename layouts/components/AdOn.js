@@ -44,13 +44,13 @@ const Adon = ({ state, dispatch }) => {
         return (
           <div className="mb-2 flex items-center" key={`content-${i}`}>
             <input
-              id={el.content}
+              id={el.adon}
               type="checkbox"
               className=" h-6 w-6 rounded border-gray-300 text-indigo-600 ring-0 focus:ring-0 focus:ring-inherit"
               checked={isActive}
               onChange={() => handleDispatch(isActive, i, el.prize, el)}
             />
-            <label htmlFor={el.adon} className="h5 ml-2">
+            <label htmlFor={el.adon} className="h5 ml-2 capitalize">
               {" "}
               {el.adon}
             </label>
