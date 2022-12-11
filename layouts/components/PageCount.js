@@ -1,5 +1,6 @@
 import { pages } from "@lib/pages";
 import React, { useEffect, useState } from "react";
+import SectaionLayout from "./SectaionLayout";
 
 const PageCount = ({ dispatch, state }) => {
   const [active, setActive] = useState([]);
@@ -81,7 +82,7 @@ const PageCount = ({ dispatch, state }) => {
   };
 
   return (
-    <div className="shadow-[0px 0px 19px 0px #0000001a] mb-16 rounded bg-[#ffffff0f] p-20 text-center">
+    <SectaionLayout item="page" state={state} style="pt-16 px-12 pb-4">
       <h2 className=" mb-8"> Select Pages</h2>
       {pages.map((el, i) => {
         const isActive = active.includes(i);
@@ -115,15 +116,15 @@ const PageCount = ({ dispatch, state }) => {
           </div>
         );
       })}
-      <h2 className="h4 my-4 text-primary">
+      {/* <h2 className="h4 my-4 text-primary">
         Total: $
         {state.isDevelopment && state.development.page.prize
           ? state.development.page.prize
           : state.isCustomization && state.customization.page.prize
           ? state.customization.page.prize
           : 0}
-      </h2>
-    </div>
+      </h2> */}
+    </SectaionLayout>
   );
 };
 

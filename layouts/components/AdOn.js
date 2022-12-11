@@ -1,5 +1,6 @@
 import { adon } from "@lib/utils/ad-on";
 import React, { useEffect, useState } from "react";
+import SectaionLayout from "./SectaionLayout";
 
 const Adon = ({ state, dispatch }) => {
   const [active, setActive] = useState([]);
@@ -35,7 +36,7 @@ const Adon = ({ state, dispatch }) => {
     });
   };
   return (
-    <div className="shadow-[0px 0px 19px 0px #0000001a] mb-16 rounded bg-[#ffffff0f] p-20 text-center">
+    <SectaionLayout item="adon" state={state} style="pt-16 px-12 pb-4">
       <h2 className=" mb-8"> Website Ad-on</h2>
       {adon.map((el, i) => {
         const isActive = active.includes(i);
@@ -57,16 +58,15 @@ const Adon = ({ state, dispatch }) => {
         );
       })}
 
-      <h2 className="h4 my-4 text-primary">
+      {/* <h2 className="h4 my-4 text-primary">
         Total: $
         {state.isDevelopment && state.development.adon.prize
           ? state.development.adon.prize
           : state.isCustomization && state.customization.adon.prize
           ? state.customization.adon.prize
           : 0}
-      </h2>
-  
-    </div>
+      </h2> */}
+    </SectaionLayout>
   );
 };
 

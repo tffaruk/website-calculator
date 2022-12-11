@@ -4,6 +4,7 @@ import Adon from "@layouts/components/AdOn";
 import Content from "@layouts/components/Content";
 import PageCount from "@layouts/components/PageCount";
 import ProjectCategory from "@layouts/components/ProjectCategory";
+import SectaionLayout from "@layouts/components/SectaionLayout";
 
 const Home = () => {
   const { state, dispatch } = ProductReducer();
@@ -11,8 +12,8 @@ const Home = () => {
   return (
     <Base>
       <div className="section">
-        <div className="container">
-          <div className="shadow-[0px 0px 19px 0px #0000001a] mb-16 rounded bg-[#ffffff0f] p-20 text-center">
+        <div className="container relative">
+          <SectaionLayout style="p-20">
             <h1 className="mb-8  ">
               Website cost <span className="text-primary">calculator</span>
             </h1>
@@ -21,7 +22,7 @@ const Home = () => {
               costs associated with a website, including: website design,
               website content, and website functionality. ‍‍‍
             </p>
-          </div>
+          </SectaionLayout>
 
           {/* {state.isCustomization ? (
             <h2>page:{state.customization.page.prize}</h2>
@@ -52,15 +53,23 @@ const Home = () => {
             !state.development.development ? null : (
             <Adon dispatch={dispatch} state={state} />
           )}
-
-          <h2 className="h4 my-4 text-primary">
-            Total: $
-            {state.isDevelopment
-              ? state.development.prize
-              : state.isCustomization
-              ? state.customization.prize
-              : 0}
-          </h2>
+          <section className={` fixed bottom-0 left-0  z-30  w-full `}>
+            <div className="container">
+              <div className="shadow-[0px 0px 19px 0px #0000001a] rounded-md bg-[#2f3133] px-2 py-4">
+                <h2 className="h5 mr-2 text-right font-normal">
+                  Your total cost:{" "}
+                  <span className="h4 my-4 rounded-sm bg-secondary px-12 py-2 text-right font-[300] text-primary ">
+                    $
+                    {state.isDevelopment
+                      ? state.development.prize
+                      : state.isCustomization
+                      ? state.customization.prize
+                      : 0}
+                  </span>
+                </h2>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </Base>

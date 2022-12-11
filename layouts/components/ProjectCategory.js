@@ -1,5 +1,6 @@
 import { is } from "date-fns/locale";
 import React, { useEffect, useState } from "react";
+import SectaionLayout from "./SectaionLayout";
 const ProjectCategory = ({ dispatch, state }) => {
   const [development, setDevelopment] = useState(false);
 
@@ -57,8 +58,8 @@ const ProjectCategory = ({ dispatch, state }) => {
     });
   };
   return (
-    <section>
-      <div className="shadow-[0px 0px 19px 0px #0000001a] mb-16 rounded bg-[#ffffff0f] p-20 text-center">
+    <>
+      <SectaionLayout state={state} style="pb-20">
         <h2 className=" mb-8">Project category</h2>
         <button
           className={` btn  rounded-sm border-primary ${
@@ -76,10 +77,10 @@ const ProjectCategory = ({ dispatch, state }) => {
         >
           Development
         </button>
-      </div>
+      </SectaionLayout>
       {development && (
-        <div className="shadow-[0px 0px 19px 0px #0000001a] mb-16 rounded bg-[#ffffff0f] p-20 text-center">
-          <h3 className="h3 mb-2">Project Type</h3>
+        <SectaionLayout state={state} style="pb-20">
+          <h2 className=" mb-2">Project Type</h2>
           <div className="flex items-center">
             <input
               id="development"
@@ -106,9 +107,9 @@ const ProjectCategory = ({ dispatch, state }) => {
               Design
             </label>
           </div>
-        </div>
+        </SectaionLayout>
       )}
-    </section>
+    </>
   );
 };
 
