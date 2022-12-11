@@ -79,7 +79,7 @@ const ProjectCategory = ({ dispatch, state }) => {
         </button>
       </SectaionLayout>
       {development && (
-        <SectaionLayout state={state} style="pb-20">
+        <SectaionLayout state={state} style="p-20">
           <h2 className=" mb-2">Project Type</h2>
           <div className="flex items-center">
             <input
