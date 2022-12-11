@@ -1,13 +1,13 @@
-import { content } from "@lib/content";
+import { adon } from "@lib/utils/ad-on";
 import React, { useEffect, useState } from "react";
 
-const Content = ({ dispatch, state }) => {
+const Adon = ({ state, dispatch }) => {
   const [active, setActive] = useState([]);
   const [customPrize, setCustomPrize] = useState([]);
 
   useEffect(() => {
     dispatch({
-      type: "CONTENT",
+      type: "AD-ON",
       prize: customPrize.reduce((prev, curr) => prev + curr.prize, 0),
       custom: true,
     });
@@ -15,10 +15,8 @@ const Content = ({ dispatch, state }) => {
 
   const handleDispatch = (isActive, index, prize, element) => {
     // set prizes on custom
-    if (customPrize.map((el) => el.content).includes(element.content)) {
-      setCustomPrize(
-        customPrize.filter((el) => el.content !== element.content)
-      );
+    if (customPrize.map((el) => el.adon).includes(element.adon)) {
+      setCustomPrize(customPrize.filter((el) => el.adon !== element.adon));
     } else {
       setCustomPrize([...customPrize, element]);
     }
@@ -31,15 +29,15 @@ const Content = ({ dispatch, state }) => {
 
     //  action dispatch
     dispatch({
-      type: "CONTENT",
+      type: "AD-ON",
       prize: prize,
       isActive: isActive,
     });
   };
   return (
     <div className="shadow-[0px 0px 19px 0px #0000001a] mb-16 rounded bg-[#ffffff0f] p-20 text-center">
-      <h2 className=" mb-8"> Content management</h2>
-      {content.map((el, i) => {
+      <h2 className=" mb-8"> Website Ad-on</h2>
+      {adon.map((el, i) => {
         const isActive = active.includes(i);
         // prize calculation for per page
         return (
@@ -51,23 +49,25 @@ const Content = ({ dispatch, state }) => {
               checked={isActive}
               onChange={() => handleDispatch(isActive, i, el.prize, el)}
             />
-            <label htmlFor={el.content} className="h5 ml-2">
+            <label htmlFor={el.adon} className="h5 ml-2">
               {" "}
-              {el.content}
+              {el.adon}
             </label>
           </div>
         );
       })}
+
       <h2 className="h4 my-4 text-primary">
         Total: $
-        {state.isDevelopment && state.development.content.prize
-          ? state.development.content.prize
-          : state.isCustomization && state.customization.content.prize
-          ? state.customization.content.prize
+        {state.isDevelopment && state.development.adon.prize
+          ? state.development.adon.prize
+          : state.isCustomization && state.customization.adon.prize
+          ? state.customization.adon.prize
           : 0}
       </h2>
+  
     </div>
   );
 };
 
-export default Content;
+export default Adon;

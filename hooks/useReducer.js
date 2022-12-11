@@ -11,6 +11,9 @@ const ProductReducer = () => {
       content: {
         prize: null,
       },
+      adon: {
+        prize: null,
+      },
     },
     development: {
       prize: null,
@@ -18,6 +21,9 @@ const ProductReducer = () => {
         prize: null,
       },
       content: {
+        prize: null,
+      },
+      adon: {
         prize: null,
       },
       design: false,

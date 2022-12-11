@@ -100,14 +100,6 @@ const PageCount = ({ dispatch, state }) => {
           : null;
 
         return (
-          // <button
-          //   key={`pages-${i}`}
-          //   className={` btn  ${isActive && "btn-primary"}`}
-          //   onClick={() => handleDispatch(isActive, i, prize, el)}
-          // >
-          //   {el.page}
-          // </button>
-
           <div className="mb-2 flex items-center" key={`pages-${i}`}>
             <input
               id={el.page}
@@ -123,34 +115,16 @@ const PageCount = ({ dispatch, state }) => {
           </div>
         );
       })}
-      {state.isCustomization && state.customization.page.prize ? (
-        <h2 className="h4 my-4 text-primary">
-          Total:${state.customization.page.prize}
-        </h2>
-      ) : state.isDevelopment && state.development.page.prize ? (
-        <h2 className="h4 my-4 text-primary">
-          Total: ${state.development.page.prize}
-        </h2>
-      ) : null}
+      <h2 className="h4 my-4 text-primary">
+        Total: $
+        {state.isDevelopment && state.development.page.prize
+          ? state.development.page.prize
+          : state.isCustomization && state.customization.page.prize
+          ? state.customization.page.prize
+          : 0}
+      </h2>
     </div>
   );
 };
 
 export default PageCount;
-
-{
-  /* 
-<div className="inline-flex items-center">
-<input
-  id="design"
-  type="checkbox"
-  className="ml-3 h-6 w-6 rounded border-gray-300 text-indigo-600 ring-0 focus:ring-0 focus:ring-inherit"
-  checked={isDesign}
-  onChange={() => handleDesign(!isDesign)}
-/>
-<label htmlFor="design" className="h4 ml-1">
-  {" "}
-  Design
-</label>
-</div> */
-}

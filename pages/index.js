@@ -1,5 +1,6 @@
 import ProductReducer from "@hooks/useReducer";
 import Base from "@layouts/Baseof";
+import Adon from "@layouts/components/AdOn";
 import Content from "@layouts/components/Content";
 import PageCount from "@layouts/components/PageCount";
 import ProjectCategory from "@layouts/components/ProjectCategory";
@@ -43,7 +44,16 @@ const Home = () => {
             <Content dispatch={dispatch} state={state} />
           )}
 
-          {state.isCustomization ? (
+          {state.isDevelopment && state.development.development ? (
+            <Adon dispatch={dispatch} state={state} />
+          ) : state.isCustomization ? (
+            <Adon dispatch={dispatch} state={state} />
+          ) : state.development.design &&
+            !state.development.development ? null : (
+            <Adon dispatch={dispatch} state={state} />
+          )}
+
+          {/* {state.isCustomization ? (
             <h2 className="h4 my-4 text-primary">
               Total: ${state.customization.prize}
             </h2>
@@ -51,7 +61,16 @@ const Home = () => {
             <h2 className="h4 my-4 text-primary">
               Total: ${state.development.prize}
             </h2>
-          ) : null}
+          ) : null} */}
+
+          <h2 className="h4 my-4 text-primary">
+            Total: $
+            {state.isDevelopment
+              ? state.development.prize
+              : state.isCustomization
+              ? state.customization.prize
+              : 0}
+          </h2>
         </div>
       </div>
     </Base>
