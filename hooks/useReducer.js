@@ -2,7 +2,9 @@ import { useReducer } from "react";
 import { reducer } from "@lib/reducer";
 
 const ProductReducer = () => {
+  // initial state
   const initialState = {
+    // customization state
     customization: {
       prize: null,
       page: {
@@ -15,6 +17,7 @@ const ProductReducer = () => {
         prize: null,
       },
     },
+    // development state
     development: {
       prize: null,
       page: {
@@ -29,6 +32,7 @@ const ProductReducer = () => {
       design: false,
       development: true,
     },
+    // default state
     isDevelopment: false,
     isCustomization: false,
     dev: false,

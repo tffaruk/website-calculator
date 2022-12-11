@@ -52,7 +52,7 @@ const PageCount = ({ dispatch, state }) => {
     });
   }, [state.development.design, state.development.development, total]);
 
-  // dispatch pages value
+  // dispatch page value
   const handleDispatch = (isActive, index, prize, element) => {
     // set prizes on custom
     if (customPrize.map((el) => el.page).includes(element.page)) {

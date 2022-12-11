@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import SectaionLayout from "./SectaionLayout";
 const ProjectCategory = ({ dispatch, state }) => {
   const [development, setDevelopment] = useState(false);
-
   const [isDesign, setIsDesign] = useState(false);
   const [isDev, setIsDev] = useState(true);
 

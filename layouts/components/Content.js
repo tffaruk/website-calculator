@@ -42,7 +42,7 @@ const Content = ({ dispatch, state }) => {
       <h2 className=" mb-8"> Content management</h2>
       {content.map((el, i) => {
         const isActive = active.includes(i);
-        // prize calculation for per page
+      
         return (
           <div className="mb-2 flex items-center" key={`content-${i}`}>
             <input

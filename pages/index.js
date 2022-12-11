@@ -24,18 +24,12 @@ const Home = () => {
             </p>
           </SectaionLayout>
 
-          {/* {state.isCustomization ? (
-            <h2>page:{state.customization.page.prize}</h2>
-          ) : state.isDevelopment ? (
-            <h2>page:{state.development.page.prize}</h2>
-          ) : null} */}
-
           <ProjectCategory dispatch={dispatch} state={state} />
 
-          {/* <TemplateCount dispatch={dispatch} /> */}
+          {/* page section */}
 
           <PageCount dispatch={dispatch} state={state} />
-
+          {/* content section */}
           {state.isDevelopment && state.development.development ? (
             <Content dispatch={dispatch} state={state} />
           ) : state.isCustomization ? (
@@ -44,7 +38,7 @@ const Home = () => {
             !state.development.development ? null : (
             <Content dispatch={dispatch} state={state} />
           )}
-
+          {/* adon section */}
           {state.isDevelopment && state.development.development ? (
             <Adon dispatch={dispatch} state={state} />
           ) : state.isCustomization ? (
