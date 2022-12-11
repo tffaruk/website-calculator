@@ -59,7 +59,7 @@ const ProjectCategory = ({ dispatch, state }) => {
   };
   return (
     <>
-      <SectaionLayout state={state} style="pb-20">
+      <SectaionLayout state={state} style="p-20">
         <h2 className=" mb-8">Project category</h2>
         <button
           className={` btn  rounded-sm border-primary ${
