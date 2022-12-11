@@ -36,7 +36,6 @@ const PageCount = ({ dispatch, state }) => {
   }, [state.custom, customize_prize]);
   useEffect(() => {
     if (!state.development.development) {
-      console.log(totalValue("design_prize"));
       dispatch({
         type: "DESIGN",
         prize: totalValue("design_prize"),
