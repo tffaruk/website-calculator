@@ -4,7 +4,7 @@ import { Head, Html, Main, NextScript } from "next/document";
 const Document = () => {
   // destructuring items from config object
   const { favicon } = config.site;
-  console.log(favicon);
+
   return (
     <Html lang="en">
       <Head>

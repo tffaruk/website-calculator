@@ -1,10 +1,11 @@
-import { pages } from "@lib/pages";
+import data from "config/data.json";
 import React, { useEffect, useState } from "react";
 import SectaionLayout from "./SectaionLayout";
 
 const PageCount = ({ dispatch, state }) => {
   const [active, setActive] = useState([]);
   const [customPrize, setCustomPrize] = useState([]);
+  const { pages } = data;
   // sum total
   const totalValue = (params) => {
     const totalValue = customPrize.reduce(

@@ -1,11 +1,11 @@
-import { adon } from "@lib/utils/ad-on";
+import data from "config/data.json"
 import React, { useEffect, useState } from "react";
 import SectaionLayout from "./SectaionLayout";
 
 const Adon = ({ state, dispatch }) => {
   const [active, setActive] = useState([]);
   const [customPrize, setCustomPrize] = useState([]);
-
+const {adon}=data
   useEffect(() => {
     dispatch({
       type: "AD-ON",

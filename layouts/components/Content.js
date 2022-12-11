@@ -1,11 +1,11 @@
-import { content } from "@lib/content";
+import data from "config/data.json"
 import React, { useEffect, useState } from "react";
 import SectaionLayout from "./SectaionLayout";
 
 const Content = ({ dispatch, state }) => {
   const [active, setActive] = useState([]);
   const [customPrize, setCustomPrize] = useState([]);
-
+  const { content } = data;
   useEffect(() => {
     dispatch({
       type: "CONTENT",
@@ -42,7 +42,7 @@ const Content = ({ dispatch, state }) => {
       <h2 className=" mb-8"> Content management</h2>
       {content.map((el, i) => {
         const isActive = active.includes(i);
-      
+
         return (
           <div className="mb-2 flex items-center" key={`content-${i}`}>
             <input
@@ -59,7 +59,6 @@ const Content = ({ dispatch, state }) => {
           </div>
         );
       })}
-    
     </SectaionLayout>
   );
 };
