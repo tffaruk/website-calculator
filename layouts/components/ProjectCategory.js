@@ -13,8 +13,6 @@ const ProjectCategory = ({ dispatch, state }) => {
     });
   }, [isDesign]);
 
-
-
   // check design
   const handleDesign = (value) => {
     setIsDesign(value);
@@ -89,7 +87,7 @@ const ProjectCategory = ({ dispatch, state }) => {
               checked={isDev}
               onChange={() => handleDevelopment(isDesign ? !isDev : isDev)}
             />
-            <label htmlFor="development " className="h4 ml-1">
+            <label htmlFor="development" className="h4 ml-1">
               {" "}
               Development
             </label>
