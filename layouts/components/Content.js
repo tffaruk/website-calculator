@@ -16,9 +16,9 @@ const Content = ({ dispatch, state }) => {
 
   const handleDispatch = (isActive, index, prize, element) => {
     // set prizes on custom
-    if (customPrize.map((el) => el.content).includes(element.content)) {
+    if (customPrize.map((el) => el.name).includes(element.name)) {
       setCustomPrize(
-        customPrize.filter((el) => el.content !== element.content)
+        customPrize.filter((el) => el.name !== element.name)
       );
     } else {
       setCustomPrize([...customPrize, element]);
@@ -46,15 +46,15 @@ const Content = ({ dispatch, state }) => {
         return (
           <div className="mb-2 flex items-center" key={`content-${i}`}>
             <input
-              id={el.content}
+              id={el.name}
               type="checkbox"
               className=" h-6 w-6 rounded border-gray-300 text-primary ring-0 focus:ring-0 focus:ring-inherit"
               checked={isActive}
               onChange={() => handleDispatch(isActive, i, el.prize, el)}
             />
-            <label htmlFor={el.content} className="h5 ml-2 capitalize">
+            <label htmlFor={el.name} className="h5 ml-2 capitalize">
               {" "}
-              {el.content}
+              {el.name}
             </label>
           </div>
         );

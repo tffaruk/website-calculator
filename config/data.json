@@ -1,19 +1,19 @@
 {
     "pages" : [
         {
-          "page": "Home",
+          "name": "Home",
           "dev_prize": 300,
           "customize_prize": 200,
           "design_prize": 250
         },
         {
-          "page": "Project",
+          "name": "Project",
           "dev_prize": 200,
           "customize_prize": 100,
           "design_prize": 150
         },
         {
-          "page": "About",
+          "name": "About",
           "dev_prize": 100,
           "customize_prize": 70,
           "design_prize": 150
@@ -21,29 +21,29 @@
       ],
       "content" : [
         {
-          "content": "Content migration",
+          "name": "Content migration",
           "prize": 30
         },
         {
-          "content": "Foresty",
+          "name": "Foresty",
           "prize": 25
         },
         {
-          "content": "Sanity",
+          "name": "Sanity",
           "prize": 35
         }
       ],
-      "adon" : [
+      "addons" : [
         {
-          "adon": "form",
+          "name": "form",
           "prize": 20
         },
         {
-          "adon": "animation",
+          "name": "animation",
           "prize": 30
         },
         {
-          "adon": "seo optimization",
+          "name": "seo optimization",
           "prize": 40
         }
       ]

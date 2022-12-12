@@ -63,8 +63,8 @@ const PageCount = ({ dispatch, state }) => {
   // dispatch page value
   const handleDispatch = (isActive, index, prize, element) => {
     // set prizes on custom
-    if (customPrize.map((el) => el.page).includes(element.page)) {
-      setCustomPrize(customPrize.filter((el) => el.page !== element.page));
+    if (customPrize.map((el) => el.name).includes(element.name)) {
+      setCustomPrize(customPrize.filter((el) => el.name !== element.name));
     } else {
       setCustomPrize(
         !state.development.design && state.development
@@ -111,15 +111,15 @@ const PageCount = ({ dispatch, state }) => {
         return (
           <div className="mb-2 flex items-center" key={`pages-${i}`}>
             <input
-              id={el.page}
+              id={el.name}
               type="checkbox"
               className=" h-6 w-6 rounded border-gray-300 text-primary ring-0 focus:ring-0 focus:ring-inherit"
               checked={isActive}
               onChange={() => handleDispatch(isActive, i, prize, el)}
             />
-            <label htmlFor={el.page} className="h5 ml-2 capitalize">
+            <label htmlFor={el.name} className="h5 ml-2 capitalize">
               {" "}
-              {el.page}
+              {el.name}
             </label>
           </div>
         );

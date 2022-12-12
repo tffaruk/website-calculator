@@ -13,7 +13,7 @@ const ProductReducer = () => {
       content: {
         prize: null,
       },
-      adon: {
+      addons: {
         prize: null,
       },
     },
@@ -26,7 +26,7 @@ const ProductReducer = () => {
       content: {
         prize: null,
       },
-      adon: {
+      addons: {
         prize: null,
       },
       design: false,
