@@ -34,14 +34,14 @@ const PageCount = ({ dispatch, state }) => {
       prize: state.category ? customize_prize : null,
     });
   }, [state.custom, customize_prize]);
-  useEffect(() => {
-    if (!state.development.development) {
-      dispatch({
-        type: "DESIGN",
-        prize: totalValue("design_prize"),
-      });
-    }
-  }, [state.development.development]);
+  // useEffect(() => {
+  //   if (!state.development.development) {
+  //     dispatch({
+  //       type: "DESIGN",
+  //       prize: totalValue("design_prize"),
+  //     });
+  //   }
+  // }, [state.development.development]);
   let total = customPrize.reduce(
     (acc, curr) => (acc += curr.dev_prize + curr.design_prize),
     0
